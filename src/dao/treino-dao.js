@@ -24,4 +24,14 @@ module.exports = class TreinoDao {
             })
         })
     }
+
+    DeleteTreino(id){
+        return new Promise((resolve, reject)=>{
+            const query = 'DELETE FROM TREINO WHERE ID = ?'
+            this.bd.all(query, id, (error, response)=>{
+                if(error) reject(`Erro ao deletar treino. ${error}`)
+                else resolve('Treino excluido com sucesso')
+            })
+        })
+    }
 }

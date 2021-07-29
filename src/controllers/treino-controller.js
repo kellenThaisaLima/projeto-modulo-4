@@ -31,5 +31,17 @@ module.exports = (app, bd) => {
         }
     })
 
+    app.delete('/treino/delete/:ID', async(res, resp)=>{
+        try{
+            const id = res.params.ID
+
+            const respostaDeleteTreino = await daoTreino.DeleteTreino(id)
+            resp.send(respostaDeleteTreino)
+
+        }catch(error){
+            resp.send(error)
+        }
+    })
+
 
 }
