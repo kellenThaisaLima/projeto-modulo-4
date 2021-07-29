@@ -34,4 +34,15 @@ module.exports = class TreinoDao {
             })
         })
     }
+
+    EditTreino(params, id){
+        return new Promise((resolve, reject)=>{
+            const query = 'UPDATE TREINO SET MUSCULO = (?), EXERCICIO = (?), SERIES = (?), REPETICOES = (?)'
+            const parametros = [params[0], params[1], params[2], params[3]]
+            this.bd.run(query, parametros, id, (error, response)=>{
+                if(error) reject (`Erro ao editar treino. ${error}`)
+                else resolve ('Treino editado com sucesso')
+            })
+        })
+    }
 }
