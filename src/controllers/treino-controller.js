@@ -43,5 +43,20 @@ module.exports = (app, bd) => {
         }
     })
 
+    app.put('/treino/edit/:ID', async(res, resp)=>{
+        try{
+            const body = res.body
+            const params = [body.MUSCULO, body.EXERCICIO, body.SERIES, body.REPETICOES]
+
+            const id = res.params.ID
+
+            const respostaEditaTreino = await daoTreino.EditTreino(params, id)
+            resp.send(respostaEditaTreino)
+
+        }catch(error){
+            resp.send(error)
+        }
+    })
+
 
 }
