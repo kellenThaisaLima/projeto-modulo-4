@@ -24,10 +24,10 @@ module.exports = (app, bd) => {
             const params = [body.MUSCULO, body.EXERCICIO, body.SERIES, body.REPETICOES]
 
             const respostaNovoTreino = await daoTreino.Novotreino(params)
-            resp.send(respostaNovoTreino)
+            resp.json(respostaNovoTreino)
 
         }catch(error){
-            resp.send(error)
+            resp.json(error)
         }
     })
 
@@ -36,10 +36,10 @@ module.exports = (app, bd) => {
             const id = res.params.ID
 
             const respostaDeleteTreino = await daoTreino.DeleteTreino(id)
-            resp.send(respostaDeleteTreino)
+            resp.json(respostaDeleteTreino)
 
         }catch(error){
-            resp.send(error)
+            resp.json(error)
         }
     })
 
@@ -51,13 +51,13 @@ module.exports = (app, bd) => {
             const id = res.params.ID
 
             const respostaEditaTreino = await daoTreino.EditTreino(params, id)
-            resp.send(respostaEditaTreino)
+            resp.json(respostaEditaTreino)
 
         }catch(error){
-            resp.send(error)
+            resp.json(error)
         }
     })
 
-    
+
 
 }
