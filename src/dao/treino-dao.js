@@ -13,4 +13,15 @@ module.exports = class TreinoDao {
             })
         })
     }
+
+    Novotreino(params){
+        return new Promise((resolve, reject)=>{
+            const query = 'INSERT INTO TREINO (MUSCULO, EXERCICIO, SERIES, REPETICOES) VALUES (?, ?, ?, ?)'
+            const parametros = [params[0], params[1], params[2], params[3]]
+            this.bd.run(query,parametros, (error, response)=>{
+                if(error) reject(`Erro ao adicionar Treino. ${error}`)
+                else resolve('Treino Adicionado com sucesso')
+            })
+        })
+    }
 }

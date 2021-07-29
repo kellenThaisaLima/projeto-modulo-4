@@ -15,11 +15,21 @@ module.exports = (app, bd) => {
         } catch (e) {
             res.json({ error: e.message });
         }
-
-
-
-
+      
     });
+
+    app.post('/treino', async (res, resp)=>{
+        try{
+            const body = res.body
+            const params = [body.MUSCULO, body.EXERCICIO, body.SERIES, body.REPETICOES]
+
+            const respostaNovoTreino = await daoTreino.Novotreino(params)
+            resp.send(respostaNovoTreino)
+
+        }catch(error){
+            resp.send(error)
+        }
+    })
 
 
 }
