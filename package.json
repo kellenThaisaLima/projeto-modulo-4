@@ -5,7 +5,7 @@
   "main": "Servidor.js",
   "scripts": {
     "test": "jest", 
-    "start": "node ./Servidor.js", 
+    "start": "node index.js", 
     "dev": "nodemon ./Servidor.js" 
   },
   "author": "",
