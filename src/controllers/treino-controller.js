@@ -5,7 +5,7 @@ module.exports = (app, bd) => {
     const daoTreino = new TreinoDao(bd)   
     
 
-    app.get("/treino", async (req, res) => {
+    app.get("/treino/ver", async (req, res) => {
         try {
             let treino = await daoTreino.verTreino()
             res.json({
@@ -17,8 +17,9 @@ module.exports = (app, bd) => {
         }
       
     });
+    
 
-    app.post('/treino', async (res, resp)=>{
+    app.post('/treino/incluir', async (res, resp)=>{
         try{
             const body = res.body
             const params = [body.MUSCULO, body.EXERCICIO, body.SERIES, body.REPETICOES]

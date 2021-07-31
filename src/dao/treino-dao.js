@@ -14,6 +14,7 @@ module.exports = class TreinoDao {
         })
     }
 
+   
     Novotreino(params){
         return new Promise((resolve, reject)=>{
             const query = 'INSERT INTO TREINO (MUSCULO, EXERCICIO, SERIES, REPETICOES) VALUES (?, ?, ?, ?)'
